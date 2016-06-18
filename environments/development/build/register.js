@@ -20,7 +20,7 @@ function RegisterController($scope, $http, $filter, $location, $window, $timeout
   		eth_account: account
   	};
     	
-    $http.post('http://192.168.2.10:3000/register', user).then(function success(resp) {
+    $http.post('http://localhost:3000/register', user).then(function success(resp) {
       console.log(resp);
     }, function error(err) {
       console.log(err);
