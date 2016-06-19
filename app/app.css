@@ -9,7 +9,6 @@ table {
 
 td {
 	text-align:left;
-	padding:16px;
 }
 
 th {
@@ -84,8 +83,9 @@ tr.primary {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-
 }
+
+
 
 .md-toolbar-tools .md-button {
 	color:#fff;
