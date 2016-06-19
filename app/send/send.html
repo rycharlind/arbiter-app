@@ -1,0 +1,22 @@
+<div class="send>
+    <div layout="column" layout-align="center center">
+        <div class="whiteframe">
+            <h1>Send Policy</h1>
+            <div layout="row" layout-align="center center">
+                <md-input-container flex>
+                    <label>Policy Number</label>
+                    <input ng-model="policyNumber" type="text" id="policyNumber">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Face Amount</label>
+                    <input ng-model="faceAmount" type="text" id="policyNumber">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Retention Amount</label>
+                    <input ng-model="retentionAmount" type="text" id="policyNumber">
+                </md-input-container>
+            </div>
+            <md-button class="md-raised md-primary md-block md-btn-large" flex ng-click="send()">Send</md-button>
+        </div>
+    </div>
+</div>

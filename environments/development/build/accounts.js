@@ -37,16 +37,16 @@
       for (var i = 0; i < accs.length; i++) {
       
         var acc = accs[i];
-        console.log(acc);
-        web3.eth.getBalance(acc, function(err, balance) {
-          console.log(balance.toNumber());
-          $scope.accounts[acc] = balance.toNumber();
-          $scope.$apply();
-        }); 
-      }
+        var balance = web3.eth.getBalance(acc);
 
+        console.log(acc + " - " + balance.toNumber());
+        $scope.accounts[acc] = balance.toNumber();
       
       }
+
+      $scope.$apply();
+
+      
     });
     
 
