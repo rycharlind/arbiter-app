@@ -12,6 +12,7 @@ module.exports = {
     "accounts.html":"accounts/accounts.html",
     "accounts.js":"accounts/accounts.js",
     "send.html":"send/send.html",
+    "send.js":"send/send.js",
     "contract.html":"contract/contract.html",
     "events.html":"events/events.html",
     "web3.service.js":"web3.service.js",

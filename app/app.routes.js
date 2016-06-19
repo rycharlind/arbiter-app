@@ -19,6 +19,12 @@
       controller: 'RegisterController',
       controllerAs: 'vm',
       reloadOnSearch: false
+    })
+    .when('/send', {
+      templateUrl: 'send.html',
+      controller: 'SendController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
     });
     $routeProvider.otherwise({redirectTo: '/'});
   }
