@@ -1,16 +1,18 @@
 <div class="accounts">
     <div layout="column" layout-align="center center">
         <div class="whiteframe">
-            <h1>Accounts</h1>
+            <h1>Account Balances</h1>
             <table>
                 <thead>
                     <tr>
                         <th>Account</th>
+                        <th>Balance</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="account in accounts">
-                        <td>{{account}}</td>
+                    <tr ng-repeat="(key, value) in accounts">
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
                     </tr>
                 </tbody>
             </table>
