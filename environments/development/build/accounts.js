@@ -7,7 +7,7 @@
 
     var vm = this;
     
-    $scope.accounts;
+    $scope.accounts = {};
 
     var params = {
       username: "rycharlind"
@@ -31,25 +31,17 @@
         alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
-
-      //console.log(accs);
-
-      //var acc = accs[0];
-
-      //var bal = web3.eth.getBalance(acc);
-      //console.log(bal.toNumber());
-
-      console.log("hello");
       
       for (var i = 0; i < accs.length; i++) {
         var acc = accs[i];
         console.log(acc);
         web3.eth.getBalance(acc, function(err, balance) {
           console.log(balance.toNumber());
+          $scope.accounts[acc] = balance.toNumber();
+          $scope.$apply();
         }); 
       }
       
-
 
     });
     
