@@ -10,27 +10,20 @@ contract Arbiter {
    
    mapping (address => uint) balances;
    uint policy;
+   uint amount;
    uint totalAmount;
    uint retentionAmount;
-
-   event myEvent(uint policy, uint amount);
    
    function Arbiter() {
        balances[tx.origin] = 1000000;
    }
 
-   function callEvent() {
-      myEvent(policy, amount, re);
-   }
-
-   function sendPolicy(uint totalAmount, uint retentionAmount) returns(bool sufficient) {
+   function sendPolicy(uint totalAmount, uint retentionAmount, address receiver) returns(bool sufficient) {
 
       amount = totalAmount-retentionAmount;
 
       balances[msg.sender] += retentionAmount;
-      balances[receiver] += amountReceiver;
-
-      callEvent();
+      balances[receiver] += amount;
 
       return true;
 

@@ -9,11 +9,11 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
     $scope.faceAmount;
     $scope.rententionAmount;
 
-    var sender = "0x56c33953c27f33fc37c5daaef95e603a28ad27e5";
+    var sender = "0x76c233baa22f407daf98cfc878dbee53d55fbc81";
 
-    var r1 = "0xfbb2941483f1bff2f1da46c31cd3e89331b9e4de";
-    var r2 = "0x69961a8034f694fe870820c3198044c240d0e33d";
-    var r3 = "0x9ffbffb765a6a126a75ec238f746b95e381cf04d";
+    var r1 = "0x2e983649c43d1c3be0ca7d595fdc0051a97a2a04";
+    var r2 = "0xe61a183403b36ec3e18e65b10d6de02db10aad32";
+    var r3 = "0xcef863238e76f0dafa60ddeab5d09c3a1a5cdbf1";
 
      var meta = MetaCoin.deployed();
 
@@ -36,6 +36,7 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
      }
 
 	}
+  
  	angular.module('arbiterApp').controller('SendController', SendController);
 
 

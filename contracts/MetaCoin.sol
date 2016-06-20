@@ -8,69 +8,62 @@ import "ConvertLib.sol";
 
 contract MetaCoin {
    
-   mapping (address => uint) balances;
-   uint policy;
-   uint amount;
-   uint amountreceiver1;
-   uint amountreceiver2;
-   uint amountreceiver3;
-   uint faceamount;
-   uint retentionAmount;
+  mapping (address => uint) balances;
+  uint policy;
+  uint amount;
+  uint faceamount;
 
-   event myEvent(uint policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
-   
-   function MetaCoin() {
-       balances[tx.origin] = 1000000;
-   }
+  uint retentionAmount;
+  uint amountreceiver1;
+  uint amountreceiver2;
+  uint amountreceiver3;
 
-   function callMyEvent() {
-      myEvent(policy, amount, amountreceiver1, amountreceiver2, amountreceiver3);
-   }
+  function MetaCoin() {
+     balances[tx.origin] = 1000000;
+  }
 
-   function sendCoin(address receiver1, address receiver2, address receiver3, uint faceamount, uint retentionAmount) returns(bool sufficient) {
+  function sendCoin(address receiver1, address receiver2, address receiver3, uint faceamount, uint retentionAmount) returns(bool sufficient) {
 
-      amount = faceamount-retentionAmount;
-      
-      if (amount > 0 && amount < 500000 )
-      {
-           amountreceiver1 = uint (amount/2);
-           amountreceiver2 = uint ((3*amount)/10);
-           amountreceiver3 = uint (amount/5);
-      }
+    amount = faceamount-retentionAmount;
+    
+    if (amount > 0 && amount < 500000 )
+    {
+         amountreceiver1 = uint (amount/2);
+         amountreceiver2 = uint ((3*amount)/10);
+         amountreceiver3 = uint (amount/5);
+    }
 
-      else if (amount >= 500000 && amount <= 1000000 )
-      {
-           amountreceiver1 = uint(amount/2);
-           amountreceiver2 = ((3*amount)/10);
-           amountreceiver3 = uint(amount/5);
-      }
+    else if (amount >= 500000 && amount <= 1000000 )
+    {
+         amountreceiver1 = uint(amount/2);
+         amountreceiver2 = ((3*amount)/10);
+         amountreceiver3 = uint(amount/5);
+    }
 
-      else if (amount > 1000000 )
-      {
-           amountreceiver1 = uint((2* amount)/5);
-           amountreceiver2 = uint((2* amount)/5);
-           amountreceiver3 = uint(amount/5);
-      }
+    else if (amount > 1000000 )
+    {
+         amountreceiver1 = uint((2* amount)/5);
+         amountreceiver2 = uint((2* amount)/5);
+         amountreceiver3 = uint(amount/5);
+    }
 
-      if (retentionAmount+amountreceiver1+amountreceiver2+amountreceiver3 != faceamount) return false;
+    if (retentionAmount+amountreceiver1+amountreceiver2+amountreceiver3 != faceamount) return false;
 
-      balances[msg.sender] = retentionAmount;
-      balances[receiver1] += amountreceiver1;
-      balances[receiver2] += amountreceiver2;
-      balances[receiver3] += amountreceiver3;
+    balances[msg.sender] = retentionAmount;
+    balances[receiver1] += amountreceiver1;
+    balances[receiver2] += amountreceiver2;
+    balances[receiver3] += amountreceiver3;
 
-      callMyEvent();
+    return true;
 
-      return true;
-
-   }
+  }
 
   function getBalanceInEth(address addr) returns(uint){
-      return ConvertLib.convert(getBalance(addr),2);
-   }
+    return ConvertLib.convert(getBalance(addr),2);
+  }
 
-   function getBalance(address addr) returns(uint) {
-       return balances[addr];
-   }
+  function getBalance(address addr) returns(uint) {
+     return balances[addr];
+  }
 
 }
