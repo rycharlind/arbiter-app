@@ -23,6 +23,11 @@
 
       var meta = MetaCoin.deployed();
       getAccountBalance(meta, accs);
+
+      meta.policy().then(function(policy){
+        $scope.policy = policy;
+        $scope.$apply();
+      });
       
     });
 

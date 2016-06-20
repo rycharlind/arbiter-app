@@ -16,6 +16,7 @@ contract MetaCoin {
    uint amountreceiver3;
    uint faceamount;
    uint retentionAmount;
+   
 
    event myEvent(string policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
    

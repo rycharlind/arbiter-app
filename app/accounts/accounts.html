@@ -1,7 +1,7 @@
 <div class="accounts">
     <div layout="column" layout-align="center center">
         <div class="whiteframe">
-            <h1>Account Balances</h1>
+            <h1>Policy:  {{policy}}</h1>
             <table>
                 <thead>
                     <tr>
@@ -12,7 +12,7 @@
                 <tbody>
                     <tr ng-repeat="(key, value) in accounts">
                         <td>{{key}}</td>
-                        <td>{{value}}</td>
+                        <td>{{value | currency}}</td>
                     </tr>
                 </tbody>
             </table>
