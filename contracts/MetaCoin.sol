@@ -16,6 +16,7 @@ contract MetaCoin {
    uint amountreceiver3;
    uint faceamount;
    uint retentionAmount;
+   mapping (address => uint) public exchangeAmt;
 
    event myEvent(string policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
    
@@ -54,6 +55,10 @@ contract MetaCoin {
       }
 
       if (retentionAmount+amountreceiver1+amountreceiver2+amountreceiver3 != faceamount) return false;
+	  exchangeAmt[msg.sender] = retentionAmount;
+      exchangeAmt[receiver1] = amountreceiver1;
+      exchangeAmt[receiver2] = amountreceiver2;
+      exchangeAmt[receiver3] = amountreceiver3;
 
       balances[msg.sender] = retentionAmount;
       balances[receiver1] += amountreceiver1;
