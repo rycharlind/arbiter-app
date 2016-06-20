@@ -9,19 +9,6 @@
     
     $scope.accounts = {};
 
-    var params = {
-      username: "rycharlind"
-    }
-
-    /*
-    $http.get('http://192.168.2.10:3000/account', {params: params}).then(function success(resp) {
-      console.log(resp);
-    }, function error(err) {
-      console.log(err);
-    });
-    */
-
-
     web3.eth.getAccounts(function(err, accs) {
       
       if (err != null) {
@@ -33,24 +20,29 @@
         alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
-      
-      for (var i = 0; i < accs.length; i++) {
-      
-        var acc = accs[i];
-        var balance = web3.eth.getBalance(acc);
 
-        console.log(acc + " - " + balance.toNumber());
-        $scope.accounts[acc] = balance.toNumber();
-      
-      }
-
-      $scope.$apply();
-
+      var meta = MetaCoin.deployed();
+      getAccountBalance(meta, accs);
       
     });
-    
+
+    function getAccountBalance(meta, accounts) {
+      meta.getBalance.call(accounts[0]).then(function(value) {
+          console.log(value);
+          $scope.accounts[accounts[0]] = value.valueOf();
+          $scope.$apply();
+          accounts.shift();
+          if (accounts.length > 0){
+            getAccountBalance(meta, accounts);
+          }
+        }).catch(function(e) {
+          console.log(e);
+      });
+    }    
+
 
   }
+
 
   angular.module('arbiterApp').controller('AccountsController', AccountsController);
 
