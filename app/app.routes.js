@@ -25,6 +25,12 @@
       controller: 'SendController',
       controllerAs: 'vm',
       reloadOnSearch: false
+    })
+    .when('/contract', {
+      templateUrl: 'contract.html',
+      controller: 'ContractController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
     });
     $routeProvider.otherwise({redirectTo: '/'});
   }

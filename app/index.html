@@ -14,7 +14,7 @@
         <script src="https://use.fontawesome.com/adefc5fb0a.js"></script> 
         
     </head>
-    <body>
+    <body ng-clock>
 
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
@@ -23,9 +23,37 @@
                 <md-button class="md-icon-button" ng-href="#/send" aria-label="Favorite">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </md-button>
+                
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="More">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </md-button>
+                    <md-menu-content width="6">
+                        <md-menu-item>
+                            <md-button ng-click="">
+                                <i class="fa fa-cog"></i> Settings
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="">
+                                <i class="fa fa-life-right"></i> Help
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="">
+                                <i class="fa fa-sign-out"></i> Sign Out
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                <!--
                 <md-button class="md-icon-button" aria-label="More">
                     <i class="fa fa-user" aria-hidden="true"></i>
                 </md-button>
+                -->
             </div>
         </md-toolbar>
 
@@ -43,14 +71,14 @@
 
         <script src="app.js"></script>
         <script src="app.routes.js"></script>
-        <script src="web3.service.js"></script>
+        <script src="arbiter.service.js"></script>
         <script src="hooked-web3-provider.min.js"></script>
         <script src="ethereumjs-accounts.js"></script>
         <script src="ngMask.js"></script>
         <script src="register.js"></script>
         <script src="sign-in.js"></script>
         <script src="accounts.js"></script>
-
+        <script src="contract.js"></script>
         <script src="send.js"></script>
 
         <!-- TypeKit -->

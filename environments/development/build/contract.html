@@ -1,29 +1,28 @@
 
 
 <div class="contract">
-	<div layout="column" layout-align="center center">
-		<table>
-			<thead>
-				<tr>
-					<th>Company</th>
-					<th>Percent</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="primary">
-					<td>Reinsurance Company 1</td>
-					<td>50%</td>
-				</tr>
-				<tr class="secondary">
-					<td>Reinsurance Company 2</td>
-					<td>30%</td>
-				</tr>
-				<tr class="primary">
-					<td>Reinsurance Company 3</td>
-					<td>20%</td>
-				</tr>
-			</tbody>
-		</table>
-		<md-button style="padding:8px 32px" ng-click="sendCoin()" class="md-warn md-raised">Execute Contract</md-button>
-	</div>
+    
+    <div layout="column" layout-align="center center">
+        <div class="whiteframe">
+            <div class="item">
+                <div class="title">Policy</div>
+                <div class="value">{{policy}}</div>
+            </div>	
+
+            <md-list flex>
+                <div ng-repeat="acc in accountList">
+                    <md-list-item class="md-3-line" ng-click="null">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="md-list-item-text" layout="column">
+                        <h3><strong>{{ acc.name }}</strong></h3>
+                        <h4>{{ acc.address }}</h4>
+                        <p>{{ acc.percent }}</p>
+                    </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                </div>
+            </md-list>
+            <md-button class="md-raised md-primary md-block md-btn-large" flex ng-click="send()">Execute Contract</md-button>
+        </div>
+    </div>
 </div>

@@ -19,9 +19,9 @@
       }
       
       var names = [
-        "Life Insurnace Company",
-        "Reinsurnace Compnany A",
-        "Reinsurnace Company B",
+        "Life Insurance Company",
+        "Reinsurance Company A",
+        "Reinsurance Company B",
         "Reinsurance Company C"
       ];
 

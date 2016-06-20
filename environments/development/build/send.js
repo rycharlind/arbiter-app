@@ -3,13 +3,13 @@
 (function () {
   'use strict';
 
-function SendController($scope, $http, $filter, $location, $window, $timeout, $routeParams) {
+function SendController($scope, $http, $filter, $location, $window, $timeout, $routeParams, arbiterService) {
 		
     $scope.policyNumber;
     $scope.faceAmount;
     $scope.rententionAmount;
  
-	var 	sender = web3.eth.accounts[0];
+	var sender = web3.eth.accounts[0];
 
     var r1 = web3.eth.accounts[1];
     var r2 = web3.eth.accounts[2];
@@ -22,6 +22,12 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
 
      $scope.send = function() {
 
+     	arbiterService.setPolicy($scope.policyNumber);
+     	arbiterService.setFaceAmount($scope.faceAmount);
+     	arbiterService.setRetentionAmount($scope.retentionAmount);
+     	$location.path('/contract');
+      	
+		/*
       	console.log("send");
  		meta.sendCoin(r1, r2, r3, $scope.policyNumber, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function(tranId) {
 
@@ -41,6 +47,7 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
 		 }).catch(function(e) {
 		   console.log(e);
 		 });
+		 */
 
      }
 

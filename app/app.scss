@@ -118,3 +118,32 @@ tr.primary {
 
 	}
 }
+
+.contract {
+	h1 {
+		text-align: left;
+
+	}
+
+	.fa-file-text-o {
+		padding: 16px 16px 16px 16px;
+	    border-radius: 35px;
+	    background-color: #f5990b;
+	    text-align: center;
+	    margin-right: 16px;
+	    color: #fff;
+	}
+	.item {
+		margin-bottom:16px;
+		.title {
+			font-size:20px;
+			color:rgba(0,0,0,0.87);
+			font-weight: 300;
+		}
+		.value {
+			color:rgba(0,0,0,0.34);
+			font-size:14px;
+		}
+
+	}
+}
