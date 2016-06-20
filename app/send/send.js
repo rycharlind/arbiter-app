@@ -6,30 +6,39 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
     $scope.policyNumber;
     $scope.faceAmount;
     $scope.rententionAmount;
+ 
 
-    var sender = "0x56c33953c27f33fc37c5daaef95e603a28ad27e5";
+    var sender = "0x62b04a1bbdf2175c862bad9930b180f344ab8787";
 
-    var r1 = "0xfbb2941483f1bff2f1da46c31cd3e89331b9e4de";
-    var r2 = "0x69961a8034f694fe870820c3198044c240d0e33d";
-    var r3 = "0x9ffbffb765a6a126a75ec238f746b95e381cf04d";
+    var r1 = "0x359816d77112e6bc17732228bbd26a62ba65e67b";
+    var r2 = "0x26796f1c19c84802441282aa31f27a2a56afa384";
+    var r3 = "0xa242cfb9d973cd827d24884cd4b4177408dda32d";
 
      var meta = MetaCoin.deployed();
+	
+
 
      $scope.send = function() {
 
-      console.log("send");
+      	console.log("send");
+ 		meta.sendCoin(r1, r2, r3, $scope.policyNumber, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function(tranId) {
 
-      meta.sendCoin(r1, r2, r3, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function() {
+			meta.policy().then(function (policy) {
+			//	console.log(policy);
 
-       console.log("Transaction complete!");
+				console.log("Transaction complete!"); 
+				
 
-       $location.path('/accounts');
-       $scope.$apply();
+				$location.path('/accounts').search({transactionId: tranId});
+				$scope.$apply();
+			});
+
+			
 
 
-     }).catch(function(e) {
-       console.log(e);
-     });
+		 }).catch(function(e) {
+		   console.log(e);
+		 });
 
      }
 

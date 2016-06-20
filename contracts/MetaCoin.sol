@@ -9,7 +9,7 @@ import "ConvertLib.sol";
 contract MetaCoin {
    
    mapping (address => uint) balances;
-   uint policy;
+   string public policy;
    uint amount;
    uint amountreceiver1;
    uint amountreceiver2;
@@ -17,7 +17,7 @@ contract MetaCoin {
    uint faceamount;
    uint retentionAmount;
 
-   event myEvent(uint policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
+   event myEvent(string policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
    
    function MetaCoin() {
        balances[tx.origin] = 1000000;
@@ -27,9 +27,10 @@ contract MetaCoin {
       myEvent(policy, amount, amountreceiver1, amountreceiver2, amountreceiver3);
    }
 
-   function sendCoin(address receiver1, address receiver2, address receiver3, uint faceamount, uint retentionAmount) returns(bool sufficient) {
+   function sendCoin(address receiver1, address receiver2, address receiver3, string policyNumber, uint faceamount, uint retentionAmount) returns(bool sufficient) {
 
       amount = faceamount-retentionAmount;
+	  policy = policyNumber;
       
       if (amount > 0 && amount < 500000 )
       {
