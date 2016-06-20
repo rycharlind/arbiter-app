@@ -20,7 +20,8 @@
       }
 
       var meta = MetaCoin.deployed();
-      getAccountBalance(meta, accs);
+	//console.log(meta.exchangeAmt(accs[1]).then(function(value){console.log(value.valueOf());}));      
+	getAccountBalance(meta, accs);
 
       meta.policy().then(function(policy){
         $scope.policy = policy;
@@ -30,7 +31,7 @@
     });
 
     function getAccountBalance(meta, accounts) {
-      meta.getBalance.call(accounts[0]).then(function(value) {
+      meta.exchangeAmt(accounts[0]).then(function(value) {
           console.log(value);
           $scope.accounts[accounts[0]] = value.valueOf();
           $scope.$apply();

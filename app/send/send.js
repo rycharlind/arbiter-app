@@ -13,7 +13,7 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
     var r2 = web3.eth.accounts[2];
     var r3 = web3.eth.accounts[3];
 
-
+ 
      var meta = MetaCoin.deployed();
 	
 
