@@ -1,23 +1,31 @@
 
 
 <div class="accounts">
+    
     <div layout="column" layout-align="center center">
         <div class="whiteframe">
-            <h1>Policy:  {{policy}}</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Account</th>
-                        <th>Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="(key, value) in accounts">
-                        <td>{{key}}</td>
-                        <td>{{value | currency}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="item">
+                <div class="title">Policy</div>
+                <div class="value">{{policy}}</div>
+            </div>
+            <div class="item">
+                <div class="title">Transaction</div>
+                <div class="value">{{transId}}</div>
+            </div>
+
+            <md-list flex>
+                <div ng-repeat="acc in accountList">
+                    <md-list-item class="md-3-line" ng-click="null">
+                    <i class="fa fa-check"></i>
+                    <div class="md-list-item-text" layout="column">
+                        <h3><strong>{{ acc.name }}</strong></h3>
+                        <h4>{{ acc.address }}</h4>
+                        <p>{{ acc.balance | currency }}</p>
+                    </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                </div>
+            </md-list>
         </div>
     </div>
 </div>

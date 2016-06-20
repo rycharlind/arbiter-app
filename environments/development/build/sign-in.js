@@ -22,11 +22,8 @@
 	    }, function error(err) {
 	      console.log(err);
 	    });
-    
+	    
     }
-
-  
-
   }
 
   angular.module('arbiterApp').controller('SignInController', SignInController);

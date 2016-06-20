@@ -1,94 +1,100 @@
 
 
 html, body {
-	background-color:#f0f0f0;
-	font-family: "purista-web";
-}
+  background-color: #f0f0f0;
+  font-family: "purista-web"; }
 
 table {
-	width:800px;
-}
+  width: 800px; }
 
 td {
-	text-align:left;
-}
+  text-align: left; }
 
 th {
-	text-align: left;
-}
+  text-align: left; }
 
 td.primary {
-	background-color:rgba(63,81,181,0.83);
-}
+  background-color: rgba(63, 81, 181, 0.83); }
 
 tr.primary {
-	background-color:rgba(63,81,181,0.24);
-}
+  background-color: rgba(63, 81, 181, 0.24); }
 
 .md-btn-large {
-	width:100%;
-	padding:12px 6px !important;
-	margin:0px !important;
-}
+  width: 100%;
+  padding: 12px 6px !important;
+  margin: 0px !important; }
 
 .whiteframe {
-	padding:32px 80px 64px 80px;
-	margin:64px;
-	background-color:#fff;
-	z-index: 5;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-	border-radius: 6px;
-}
+  padding: 32px 80px 64px 80px;
+  margin: 64px;
+  background-color: #fff;
+  z-index: 5;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 6px; }
 
 .whiteframe h1 {
-	color:#757575;
-	text-align: center;
-	margin:0px 0px 16px 0px;
-}
+  color: #757575;
+  text-align: center;
+  margin: 0px 0px 16px 0px; }
 
 .blockchain1-bg:before {
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.16;
-    background-image: url('images/blockchain1.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-
-}
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.16;
+  background-image: url("images/blockchain1.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
 .blockchain2-bg:before {
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.16;
-    background-image: url('images/blockchain3.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-}
-
-
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.16;
+  background-image: url("images/blockchain3.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
 .md-toolbar-tools .md-button {
-	color:#fff;
-}
+  color: #fff; }
+
+.accounts h1 {
+  text-align: left; }
+
+.accounts .fa-check {
+  padding: 16px 16px 16px 16px;
+  border-radius: 35px;
+  background-color: #1bc176;
+  text-align: center;
+  margin-right: 16px;
+  color: #fff; }
+
+.accounts .item {
+  margin-bottom: 16px; }
+  .accounts .item .title {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 300; }
+  .accounts .item .value {
+    color: rgba(0, 0, 0, 0.34);
+    font-size: 14px; }

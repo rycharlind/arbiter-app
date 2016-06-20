@@ -5,7 +5,8 @@
   angular.module('arbiterApp', [
     'ngRoute',
     'ngMessages',
-    'ngMaterial'
+    'ngMaterial',
+    'ngMask'
   ]);
 
   var rootElement = document.getElementsByTagName('html')[0];

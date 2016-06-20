@@ -4,11 +4,17 @@
 	<div layout="column" layout-align="center center">
 		<div class="whiteframe">
 			<h1>Register</h1>
-			<div layout="row" layout-align="center center">
+			<div layout="column" laytout-align="center center">
+				<md-input-container flex>
+					<label>Company Name</label>
+					<input ng-model="company" type="text" id="company">
+				</md-input-container>
 				<md-input-container flex>
 					<label>Username</label>
 					<input ng-model="username" type="text" id="username">
 				</md-input-container>
+			</div>
+			<div layout="row" layout-align="center center">
 				<md-input-container flex>
 					<label>Password</label>
 					<input ng-model="password" type="text" id="password">
