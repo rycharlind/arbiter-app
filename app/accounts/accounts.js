@@ -33,7 +33,7 @@
 
       var meta = MetaCoin.deployed();
 	//console.log(meta.exchangeAmt(accs[1]).then(function(value){console.log(value.valueOf());}));      
-	getAccountBalance(meta, names, accs);
+	getAccountBalanceAlt(meta, names, accs);
 
       meta.policy().then(function(policy){
         $scope.policy = policy;
@@ -42,7 +42,7 @@
       
     });
 
-    function getAccountBalance( meta, names, accounts) {
+    function getAccountBalanceAlt( meta, names, accounts) {
       meta.exchangeAmt(accounts[0]).then(function(value) {
           console.log(value);
 
@@ -56,7 +56,7 @@
           accounts.shift();
           names.shift();
           if (accounts.length > 0){
-            getAccountBalance(meta, names, accounts);
+            getAccountBalanceAlt(meta, names, accounts);
           }
         }).catch(function(e) {
           console.log(e);

@@ -7,7 +7,7 @@
 
 		$scope.policyNumber;
 		$scope.faceAmount;
-		$scope.rententionAmount;
+		$scope.retentionAmount;
 
 		$scope.send = function() {
 			arbiterService.setPolicy($scope.policyNumber);
