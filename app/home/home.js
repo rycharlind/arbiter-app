@@ -3,8 +3,6 @@
 
 function HomeController($scope, $http, $filter, $location, $window, $timeout, $routeParams, arbiterService) {
 	
-		
-
 
 }
   

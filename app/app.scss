@@ -3,24 +3,42 @@ html, body {
 	font-family: "purista-web";
 }
 
+/*
 .send {
 	.mdl-card {
 		padding:32px;
 		width:600px;
 	}
 }
+*/
 
-.contract {
-	.mdl-card {
+.mdl-card {
+	width:600px !important;
+	h3 {
+		background-color:#00BCD4;
 		padding:32px;
-		width:800px;
+		margin:0;
+		color:#fff;
+		font-weight: 300;
 	}
-}
-
-.accounts {
-	.mdl-card {
+	.card-body {
 		padding:32px;
-		width:800px;
+		.item {
+			margin-bottom:12px;
+			.key {
+				font-size:22px;
+				margin-bottom:6px;
+			}
+			.value {
+				font-size:14px;
+				color:gray;
+			}
+		}
+		ul {
+			li {
+				border-bottom:1px solid #d6d6d6;
+			}
+		}
 	}
 }
 

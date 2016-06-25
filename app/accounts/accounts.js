@@ -31,8 +31,7 @@
         return;
       }
 
-      var meta = MetaCoin.deployed();
-	//console.log(meta.exchangeAmt(accs[1]).then(function(value){console.log(value.valueOf());}));      
+      var meta = MetaCoin.deployed();     
 	getAccountBalanceAlt(meta, names, accs);
 
       meta.policy().then(function(policy){
