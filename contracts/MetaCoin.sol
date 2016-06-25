@@ -71,16 +71,9 @@ contract MetaCoin {
 	  receiver2.send(amountreceiver2); 
 	  receiver3.send(amountreceiver3);
 
-      callMyEvent();
-      
-
-      //targetAddress.call.gas(200000).value(this.balance)();
-
-      var sent = receiver1.call.gas(2000000).value(amountreceiver1);
-
-      return sent;
-
-   }
+    callMyEvent();
+    return true;    
+  }
 
   function getBalanceInEth(address addr) returns(uint){
     return ConvertLib.convert(getBalance(addr),2);
