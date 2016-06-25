@@ -4,38 +4,17 @@ html, body {
   background-color: #f0f0f0;
   font-family: "purista-web"; }
 
-table {
+.send .mdl-card {
+  padding: 32px;
+  width: 600px; }
+
+.contract .mdl-card {
+  padding: 32px;
   width: 800px; }
 
-td {
-  text-align: left; }
-
-th {
-  text-align: left; }
-
-td.primary {
-  background-color: rgba(63, 81, 181, 0.83); }
-
-tr.primary {
-  background-color: rgba(63, 81, 181, 0.24); }
-
-.md-btn-large {
-  width: 100%;
-  padding: 12px 6px !important;
-  margin: 0px !important; }
-
-.whiteframe {
-  padding: 32px 80px 64px 80px;
-  margin: 64px;
-  background-color: #fff;
-  z-index: 5;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 6px; }
-
-.whiteframe h1 {
-  color: #757575;
-  text-align: center;
-  margin: 0px 0px 16px 0px; }
+.accounts .mdl-card {
+  padding: 32px;
+  width: 800px; }
 
 .blockchain1-bg:before {
   content: ' ';
@@ -74,48 +53,3 @@ tr.primary {
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover; }
-
-.md-toolbar-tools .md-button {
-  color: #fff; }
-
-.accounts h1 {
-  text-align: left; }
-
-.accounts .fa-check {
-  padding: 16px 16px 16px 16px;
-  border-radius: 35px;
-  background-color: #1bc176;
-  text-align: center;
-  margin-right: 16px;
-  color: #fff; }
-
-.accounts .item {
-  margin-bottom: 16px; }
-  .accounts .item .title {
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.87);
-    font-weight: 300; }
-  .accounts .item .value {
-    color: rgba(0, 0, 0, 0.34);
-    font-size: 14px; }
-
-.contract h1 {
-  text-align: left; }
-
-.contract .fa-file-text-o {
-  padding: 16px 16px 16px 16px;
-  border-radius: 35px;
-  background-color: #f5990b;
-  text-align: center;
-  margin-right: 16px;
-  color: #fff; }
-
-.contract .item {
-  margin-bottom: 16px; }
-  .contract .item .title {
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.87);
-    font-weight: 300; }
-  .contract .item .value {
-    color: rgba(0, 0, 0, 0.34);
-    font-size: 14px; }

@@ -9,7 +9,7 @@
     
     $scope.accounts = {};
 
-    $scope.policy = arbiterService.getPolicy();
+    $scope.policyNumber = arbiterService.getPolicy();
     $scope.faceAmount = arbiterService.getFaceAmount();
     $scope.retentionAmount = arbiterService.getRetentionAmount();
 
@@ -19,30 +19,25 @@
     var r3 = web3.eth.accounts[3];
 
  
-     var meta = MetaCoin.deployed();
+    var meta = MetaCoin.deployed();
+
 
     $scope.send = function() {
 
-      console.log("send");
+      meta.sendCoin(r1, r2, r3, $scope.policy, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function(tranId, status) {
 
-      console.log("face: " + $scope.faceAmount);
-      console.log("ret: " + $scope.retentionAmount);
-
-      meta.sendCoin(r1, r2, r3, $scope.policy, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function(tranId) {
+        console.log("Transaction complete!"); 
+        console.log(tranId);
+        console.log(status);
 
         meta.policy().then(function (policy) {
-        //  console.log(policy);
-
-          console.log("Transaction complete!"); 
-          
 
           $location.path('/accounts').search({transactionId: tranId});
           $scope.$apply();
+        
         });
 
-        
-
-
+      
        }).catch(function(e) {
          console.log(e);
        });
@@ -100,6 +95,7 @@
           if (accounts.length > 0){
             getAccountBalance(meta, names, accounts, percents);
           }
+          
         }).catch(function(e) {
           console.log(e);
       });

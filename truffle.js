@@ -3,6 +3,7 @@ module.exports = {
     "images/": "images/",
     "index.html": "index.html",
     "app.css":"app.scss",
+    "temp-custom-styles.css":"temp-custom-styles.css",
     "app.js":"app.js",
     "app.routes.js":"app.routes.js",
     "register.html":"register/register.html",

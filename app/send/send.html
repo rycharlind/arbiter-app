@@ -1,22 +1,22 @@
 <div class="send">
-    <div layout="column" layout-align="center center">
-        <div class="whiteframe">
-            <h1>Send Policy</h1>
-            <div layout="row" layout-align="center center">
-                <md-input-container flex>
-                    <label>Policy Number</label>
-                    <input ng-model="policyNumber" type="text" id="policyNumber">
-                </md-input-container>
-                <md-input-container flex>
-                    <label>Face Amount</label>
-                    <input ng-model="faceAmount" type="text" id="policyNumber">
-                </md-input-container>
-                <md-input-container flex>
-                    <label>Retention Amount</label>
-                    <input ng-model="retentionAmount" type="text" id="policyNumber">
-                </md-input-container>
+    <div class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-card mdl-shadow--2dp">
+            <h3>Send</h3>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="policyNumber" class="mdl-textfield__input" type="text" id="policyNumber">
+                <label class="mdl-textfield__label" for="policyNumber">Policy Number</label>
             </div>
-            <md-button class="md-raised md-primary md-block md-btn-large" flex ng-click="send()">Send</md-button>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="faceAmount" class="mdl-textfield__input" type="text" id="faceAmount">
+                <label class="mdl-textfield__label" for="faceAmount">Face Amount</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="retentionAmount" class="mdl-textfield__input" type="text" id="retentionAmount">
+                <label class="mdl-textfield__label" for="retentionAmount">Retention Amount</label>
+            </div>
+            <button ng-click="send()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            Send
+            </button>
         </div>
     </div>
 </div>
