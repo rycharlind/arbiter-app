@@ -16,40 +16,14 @@ function SendController($scope, $http, $filter, $location, $window, $timeout, $r
     var r3 = web3.eth.accounts[3];
 
  
-     var meta = MetaCoin.deployed();
-	
+	var meta = MetaCoin.deployed();
 
-
-     $scope.send = function() {
-
-     	arbiterService.setPolicy($scope.policyNumber);
-     	arbiterService.setFaceAmount($scope.faceAmount);
-     	arbiterService.setRetentionAmount($scope.retentionAmount);
-     	$location.path('/contract');
-      	
-		/*
-      	console.log("send");
- 		meta.sendCoin(r1, r2, r3, $scope.policyNumber, $scope.faceAmount, $scope.retentionAmount, {from: sender}).then(function(tranId) {
-
-			meta.policy().then(function (policy) {
-			//	console.log(policy);
-
-				console.log("Transaction complete!"); 
-				
-
-				$location.path('/accounts').search({transactionId: tranId});
-				$scope.$apply();
-			});
-
-			
-
-
-		 }).catch(function(e) {
-		   console.log(e);
-		 });
-		 */
-
-     }
+	$scope.send = function() {
+		arbiterService.setPolicy($scope.policyNumber);
+		arbiterService.setFaceAmount($scope.faceAmount);
+		arbiterService.setRetentionAmount($scope.retentionAmount);
+		$location.path('/contract');
+	}
 
 	}
   
