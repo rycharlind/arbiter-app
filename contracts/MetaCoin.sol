@@ -31,7 +31,7 @@ contract MetaCoin {
    function sendCoin(address receiver1, address receiver2, address receiver3, string policyNumber, uint faceamount, uint retentionAmount) returns(bool sufficient) {
 
       amount = faceamount-retentionAmount;
-	  policy = policyNumber;
+	  policy = policyNumber; 	
       
       if (amount > 0 && amount < 500000 )
       {
@@ -64,6 +64,11 @@ contract MetaCoin {
       balances[receiver1] += amountreceiver1;
       balances[receiver2] += amountreceiver2;
       balances[receiver3] += amountreceiver3;
+
+	  msg.sender.send(retentionAmount);  
+	  receiver1.send(amountreceiver1);  
+	  receiver2.send(amountreceiver2); 
+	  receiver3.send(amountreceiver3);
 
       callMyEvent();
 

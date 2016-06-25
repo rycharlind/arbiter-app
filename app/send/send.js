@@ -3,27 +3,35 @@
 
 function SendController($scope, $http, $filter, $location, $window, $timeout, $routeParams, arbiterService) {
 		
+	web3.eth.defaultAccount = web3.eth.accounts[0];
+
     $scope.policyNumber;
     $scope.faceAmount;
     $scope.rententionAmount;
- 
-	var sender = web3.eth.accounts[0];
-
-    var r1 = web3.eth.accounts[1];
-    var r2 = web3.eth.accounts[2];
-    var r3 = web3.eth.accounts[3];
-
- 
-     var meta = MetaCoin.deployed();
+    
 	
 
 
      $scope.send = function() {
 
+
+		var sender = web3.eth.accounts[0];
+
+		var r1 = web3.eth.accounts[1];
+		var r2 = web3.eth.accounts[2];
+		var r3 = web3.eth.accounts[3];
+
+	 
+		 var meta = MetaCoin.deployed();
+
      	arbiterService.setPolicy($scope.policyNumber);
      	arbiterService.setFaceAmount($scope.faceAmount);
      	arbiterService.setRetentionAmount($scope.retentionAmount);
      	$location.path('/contract');
+     	
+     	
+      	MetaCoin.deployed().sendCoin.sendTransaction(r1, r2, r3, $scope.policyNumber, parseInt($scope.faceAmount), parseInt($scope.rententionAmount), 
+      		{from: sender, to: r1, value: parseInt($scope.faceAmount)});
       	
 		/*
       	console.log("send");
