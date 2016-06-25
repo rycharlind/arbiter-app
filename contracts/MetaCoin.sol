@@ -29,12 +29,6 @@ contract MetaCoin {
    }
 
    function sendCoin(address receiver1, address receiver2, address receiver3, string policyNumber, uint faceamount, uint retentionAmount) returns(bool sufficient) {
-
-<<<<<<< HEAD
-      amount = faceamount-retentionAmount;
-	  policy = policyNumber; 	
-=======
->>>>>>> refs/remotes/origin/master
       
       amount = faceamount-retentionAmount;
       policy = policyNumber;
