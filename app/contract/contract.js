@@ -11,6 +11,7 @@
     $scope.faceAmount = arbiterService.getFaceAmount();
     $scope.retentionAmount = arbiterService.getRetentionAmount();
 
+
     $scope.send = function() {
 
       MetaCoin.deployed().sendCoin.sendTransaction(web3.eth.accounts[1], web3.eth.accounts[2], web3.eth.accounts[3], $scope.policyNumber, 
