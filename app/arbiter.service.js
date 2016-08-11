@@ -6,9 +6,18 @@
     var EVENTS = {
     };
 
+
+    var contract;
     var policy;
     var faceAmount;
     var retentionAmount;
+
+    var companies = [
+      "Life Insurance Company",
+      "Reinsurance Company A",
+      "Reinsurance Company B",
+      "Reinsurance Company C"
+    ];
 
     return {
       getPolicy: getPolicy, 
@@ -17,11 +26,20 @@
       setFaceAmount: setFaceAmount,
       getRetentionAmount: getRetentionAmount, 
       setRetentionAmount: setRetentionAmount,
+      getCompanies: getCompanies,
       EVENTS: EVENTS,
       subscribe: function (scope, event, callback) {
         scope.$on(event, callback);
       }
     };
+
+    function getContract() {
+      return this.contract;
+    }
+
+    function setContract(c) {
+      this.contract = c;
+    }
 
     function getPolicy() {
       return this.policy;
@@ -45,6 +63,10 @@
 
     function setRetentionAmount(ra) {
       this.retentionAmount = ra;
+    }
+
+    function getCompanies() {
+      return this.companies;
     }
 
     function broadcastAppEvent(event, application) {

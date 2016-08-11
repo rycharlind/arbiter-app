@@ -3,15 +3,6 @@ html, body {
 	font-family: "purista-web";
 }
 
-/*
-.send {
-	.mdl-card {
-		padding:32px;
-		width:600px;
-	}
-}
-*/
-
 .mdl-card {
 	width:600px !important;
 	h3 {
@@ -39,6 +30,21 @@ html, body {
 				border-bottom:1px solid #d6d6d6;
 			}
 		}
+	}
+}
+
+.mdl-progress-container {
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	width:100%;
+	z-index:100;
+	background-color:rgba(0,0,0,0.56);
+	display:flex;
+	align-items:center;
+	.mdl-progress {
+		margin:auto;
 	}
 }
 

@@ -1,6 +1,3 @@
-
-import "ConvertLib.sol";
-
 // This is just a simple example of a coin-like contract.
 // It is not standards compatible and cannot be expected to talk to other
 // coin/token contracts. If you want to create a standards-compliant
@@ -8,28 +5,24 @@ import "ConvertLib.sol";
 
 contract MetaCoin {
    
-   mapping (address => uint) balances;
-   string public policy;
-   uint amount;
-   uint amountreceiver1;
-   uint amountreceiver2;
-   uint amountreceiver3;
-   uint faceamount;
-   uint retentionAmount;
-   mapping (address => uint) public exchangeAmt;
+  mapping (address => uint) balanceOf;
+  mapping (address => uint) public exchangeAmt;
+  string public policy;
+  uint amount;
+  uint amountreceiver1;
+  uint amountreceiver2;
+  uint amountreceiver3;
+  uint faceamount;
+  uint retentionAmount;
 
-   event myEvent(string policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
-   
-   function MetaCoin() {
-       balances[tx.origin] = 1000000;
-   }
+  event LogEvent(string policy, uint amount, uint amountreciever1, uint amountreceiver2, uint amountreceiver3);
 
-   function callMyEvent() {
-      myEvent(policy, amount, amountreceiver1, amountreceiver2, amountreceiver3);
-   }
+  function MetaCoin() {
+     balanceOf[tx.origin] = 1000000;
+  }
 
-   function sendCoin(address receiver1, address receiver2, address receiver3, string policyNumber, uint faceamount, uint retentionAmount) returns(bool sufficient) {
-      
+  function sendCoin(address receiver1, address receiver2, address receiver3, string policyNumber, uint faceamount, uint retentionAmount) returns(bool sufficient) {
+    
     amount = faceamount-retentionAmount;
     policy = policyNumber;
 
@@ -55,32 +48,30 @@ contract MetaCoin {
     }
 
     if (retentionAmount+amountreceiver1+amountreceiver2+amountreceiver3 != faceamount) return false;
-    
+
     exchangeAmt[msg.sender] = retentionAmount;
     exchangeAmt[receiver1] = amountreceiver1;
     exchangeAmt[receiver2] = amountreceiver2;
     exchangeAmt[receiver3] = amountreceiver3;
 
-    balances[msg.sender] = retentionAmount;
-    balances[receiver1] += amountreceiver1;
-    balances[receiver2] += amountreceiver2;
-    balances[receiver3] += amountreceiver3;
+    balanceOf[msg.sender] = retentionAmount;
+    balanceOf[receiver1] += amountreceiver1;
+    balanceOf[receiver2] += amountreceiver2;
+    balanceOf[receiver3] += amountreceiver3;
 
-	  msg.sender.send(retentionAmount);  
-	  receiver1.send(amountreceiver1);  
-	  receiver2.send(amountreceiver2); 
-	  receiver3.send(amountreceiver3);
+    msg.sender.send(retentionAmount);  
+    receiver1.send(amountreceiver1);  
+    receiver2.send(amountreceiver2); 
+    receiver3.send(amountreceiver3);
 
-    callMyEvent();
+    LogEvent(policy, amount, amountreceiver1, amountreceiver2, amountreceiver3);
+
     return true;    
-  }
-
-  function getBalanceInEth(address addr) returns(uint){
-    return ConvertLib.convert(getBalance(addr),2);
+  
   }
 
   function getBalance(address addr) returns(uint) {
-     return balances[addr];
+     return balanceOf[addr];
   }
 
 }

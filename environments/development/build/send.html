@@ -4,21 +4,21 @@
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card mdl-shadow--2dp">
             <h3>Send</h3>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                <input ng-model="policyNumber" class="mdl-textfield__input" type="text" id="policyNumber">
-                <label class="mdl-textfield__label" for="policyNumber">Policy Number</label>
+            <div class="card-body">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                    <input ng-model="address" class="mdl-textfield__input" type="text" id="address">
+                    <label class="mdl-textfield__label" for="address">Address</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                    <input ng-model="amount" class="mdl-textfield__input" type="text" id="amount">
+                    <label class="mdl-textfield__label" for="address">Amount</label>
+                </div>
+                <div>
+                    <button ng-click="send()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Send
+                    </button>
+                </div>
             </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                <input ng-model="faceAmount" class="mdl-textfield__input" type="text" id="faceAmount">
-                <label class="mdl-textfield__label" for="faceAmount">Face Amount</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                <input ng-model="retentionAmount" class="mdl-textfield__input" type="text" id="retentionAmount">
-                <label class="mdl-textfield__label" for="retentionAmount">Retention Amount</label>
-            </div>
-            <button ng-click="send()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-            Send
-            </button>
         </div>
     </div>
 </div>

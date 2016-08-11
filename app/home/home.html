@@ -1,3 +1,36 @@
 <div class="home">
-	
+	<div ng-repeat="tx in transactions">
+
+			<table class="mdl-data-table mdl-js-data-table">
+				<tbody>
+					<tr>
+						<th class="mdl-data-table__cell--non-numeric">Transaction #{{$index+1}}</th>
+					</tr>
+					<tr>
+						<td>Hash #</td>
+						<td class="mdl-data-table__cell--non-numeric"><a href="#">{{tx.hash}}</a></td>
+					</tr>
+					<tr>
+						<td>From</td>
+						<td class="mdl-data-table__cell--non-numeric"><a href="#}">{{tx.from}}</a></td>
+					</tr>
+					<tr>
+						<td>To</td>
+						<td class="mdl-data-table__cell--non-numeric"><a href="#">{{tx.to}}</a></td>
+					</tr>
+					<tr>
+						<td>Gas</td>
+						<td class="mdl-data-table__cell--non-numeric">{{tx.gas}}</a></td>
+					</tr>
+					<tr>
+						<td>Input</td>
+						<td class="mdl-data-table__cell--non-numeric">{{tx.input}}</a></td>
+					</tr>
+					<tr>
+						<td>Value</td>
+						<td class="mdl-data-table__cell--non-numeric">{{tx.value}}</a></td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
 </div>

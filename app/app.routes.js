@@ -14,6 +14,12 @@
       controllerAs: 'vm',
       reloadOnSearch: false
     })
+    .when('/transactions', {
+      templateUrl: 'home.html',
+      controller: 'HomeController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
+    })
     .when('/register', {
       templateUrl: 'register.html',
       controller: 'RegisterController',
@@ -31,8 +37,20 @@
       controller: 'ContractController',
       controllerAs: 'vm',
       reloadOnSearch: false
+    })
+    .when('/contracts', {
+      templateUrl: 'contracts.html',
+      controller: 'ContractsController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
+    })
+    .when('/account/:account', {
+      templateUrl: 'account.html',
+      controller: 'AccountController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
     });
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: '/contracts'});
   }
 
   angular.module('arbiterApp').config(configureRoutes);

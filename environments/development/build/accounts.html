@@ -3,55 +3,12 @@
 <div class="accounts">
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card mdl-shadow--2dp">
-            <h3>Transaction Complete</h3>
-            <h4>Policy</h4>
-            <h5>{{policyNumber}}</h5>
-            <h4>Transaction</h4>
-            <h5>{{transId}}</h5>
-            <ul class="demo-list-three mdl-list">
-                <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="acc in accountList">
-                    <span class="mdl-list__item-primary-content">
-                        <i class="material-icons mdl-list__item-avatar">check</i>
-                        <span>{{acc.name}}</span>
-                        <span class="mdl-list__item-text-body">{{acc.address}}</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-content">
-                        <span class="mdl-list__item-secondary-action">
-                            {{acc.balance | currency }}
-                        </span>
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!--
-<div class="accounts">
-    
-    <div layout="column" layout-align="center center">
-        <div class="whiteframe">
-            <div class="item">
-                <div class="title">Policy</div>
-                <div class="value">{{policy}}</div>
-            </div>
-            <div class="item">
-                <div class="title">Transaction</div>
-                <div class="value">{{transId}}</div>
-            </div>
-            <md-list flex>
-            <div ng-repeat="acc in accountList">
-                <md-list-item class="md-3-line" ng-click="null">
-                <i class="fa fa-check"></i>
-                <div class="md-list-item-text" layout="column">
-                    <h3><strong>{{ acc.name }}</strong></h3>
-                    <h4>{{ acc.address }}</h4>
-                    <p>{{ acc.balance | currency }}</p>
+            <h3>Accounts</h3>
+            <div class="card-body">
+                <div class="account" ng-repeat="account in accounts">
+                    <a href="#/account/{{account}}">{{account}}</a>
                 </div>
-                </md-list-item>
-                <md-divider ></md-divider>
             </div>
-            </md-list>
         </div>
     </div>
 </div>
--->
