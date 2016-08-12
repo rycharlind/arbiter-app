@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-	function ContractsController($scope, $http, $filter, $location, $window, $timeout, $routeParams, arbiterService) {
+	function ContractsController($scope, $http, $location, $routeParams, arbiterService, $firebaseObject, $firebaseArray) {
+
+		var ref = new Firebase("https://arbiter.firebaseio.com/contracts");
+		$scope.contracts = $firebaseArray(ref);
 
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 
@@ -11,14 +14,10 @@
 		$scope.tokenSymbol;
 	
 		$scope.create = function() {
-
-			console.log($scope.tokenName);
-			console.log($scope.initialSupply);
-			console.log($scope.decimalUnits);
-			console.log($scope.tokenSymbol);
-
 			MyToken.new($scope.initialSupply, $scope.tokenName, $scope.decimalUnits, $scope.tokenSymbol).then(function(instance) {
-				console.log(instance);
+				console.log(instance.address);
+				$scope.contracts.$add(instance.address);
+				$scope.contracts.$save();
 			});
 		}	
 	}

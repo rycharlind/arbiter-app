@@ -1,32 +1,9 @@
 <div class="contract">
-    <div class="mdl-progress-container" ng-show="isLoading">
-        <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    </div>
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card mdl-shadow--2dp">
-            <h3>Review Contract</h3>
+            <h3>Contract <small>{{contract}}</small></h3>
             <div class="card-body">
-                <div class="item">
-                    <div class="key">Policy</div>
-                    <div class="value">{{policyNumber}}</div>
-                </div>
-                <ul class="demo-list-three mdl-list">
-                    <li class="mdl-list__item mdl-list__item--three-line" ng-repeat="acc in accountList">
-                        <span class="mdl-list__item-primary-content">
-                            <i class="material-icons mdl-list__item-avatar">location_city</i>
-                            <span>{{acc.name}}</span>
-                            <span class="mdl-list__item-text-body">{{acc.address}}</span>
-                        </span>
-                        <span class="mdl-list__item-secondary-content">
-                            <span class="mdl-list__item-secondary-action">
-                                {{acc.percent}}
-                            </span>
-                        </span>
-                    </li>
-                </ul>
-                <button ng-click="send()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                Execute Contract
-                </button>
+                
             </div>
         </div>
     </div>

@@ -32,7 +32,9 @@
         <div class="mdl-card mdl-shadow--2dp">
             <h3>Contracts</h3>
             <div class="card-body">
-                
+                <div ng-repeat="contract in contracts">
+                    <a href="#/contract/{{contract.$value}}">{{contract.$value}}</a>
+                </div>
             </div>
         </div>
     </div>

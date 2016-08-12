@@ -4,7 +4,8 @@
   angular.module('arbiterApp', [
     'ngRoute',
     'ngMessages',
-    'ngMask'
+    'ngMask',
+    'firebase'
   ])   
   .run(function ($rootScope,$timeout) {
         $rootScope.$on('$viewContentLoaded', ()=> {

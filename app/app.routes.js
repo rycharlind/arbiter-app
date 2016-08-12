@@ -2,21 +2,9 @@
   'use strict';
 
   function configureRoutes($routeProvider) {
-    $routeProvider.when('/accounts', {
-      templateUrl: 'accounts.html',
-      controller: 'AccountsController',
-      controllerAs: 'vm',
-      reloadOnSearch: false
-    })
-    .when('/sign-in', {
+    $routeProvider.when('/sign-in', {
       templateUrl: 'sign-in.html',
       controller: 'SignInController',
-      controllerAs: 'vm',
-      reloadOnSearch: false
-    })
-    .when('/transactions', {
-      templateUrl: 'home.html',
-      controller: 'HomeController',
       controllerAs: 'vm',
       reloadOnSearch: false
     })
@@ -32,7 +20,7 @@
       controllerAs: 'vm',
       reloadOnSearch: false
     })
-    .when('/contract', {
+    .when('/contract/:contract', {
       templateUrl: 'contract.html',
       controller: 'ContractController',
       controllerAs: 'vm',
@@ -47,6 +35,12 @@
     .when('/account/:account', {
       templateUrl: 'account.html',
       controller: 'AccountController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
+    })
+    .when('/accounts', {
+      templateUrl: 'accounts.html',
+      controller: 'AccountsController',
       controllerAs: 'vm',
       reloadOnSearch: false
     });
