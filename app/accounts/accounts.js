@@ -5,6 +5,10 @@
     
     $scope.accounts = web3.eth.accounts;
 
+    $scope.create = function() {
+    	
+    }
+
   }
 
 

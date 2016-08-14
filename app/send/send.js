@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-	function SendController($scope, $http, $filter, $location, $window, $timeout, $routeParams, arbiterService) {
+	function SendController($scope, $http, $filter, $location, $routeParams, arbiterService, $firebaseArray) {
+
+		var ref = new Firebase("https://arbiter.firebaseio.com/tranfers");
+		var transfers = $firebaseArray(ref);
 
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 
@@ -11,23 +14,46 @@
 		$scope.address;
 		$scope.amount;
 
+		var token = MyToken.at($routeParams.address);
+
+		// Token Name
+		$scope.tokenName;
+		token.name().then(function(value) {
+			$scope.tokenName = value.valueOf();
+			$scope.$apply();
+		});
+
+		// My Token Balance
+		$scope.balance;
+		token.balanceOf(web3.eth.defaultAccount).then(function(value) {
+          $scope.balance = value.valueOf();
+          $scope.$apply();
+        });
+
 		$scope.send = function() {
-			MyToken.at("0xc1f0b5b90975c55bdd614ad999a54a001006ea61").transfer(web3.eth.accounts[4], 10, {from: web3.eth.defaultAccount}).then(function(transaction) {
+			token.transfer($scope.address, $scope.amount, {from: web3.eth.defaultAccount}).then(function(transaction) {
 				console.log(transaction);
 			});
 		}
 
-		/*
-		$scope.send = function() {
-			arbiterService.setPolicy($scope.policyNumber);
-			arbiterService.setFaceAmount($scope.faceAmount);
-			arbiterService.setRetentionAmount($scope.retentionAmount);
-			$location.path('/contract');
-			
-		  	//MetaCoin.deployed().sendCoin.sendTransaction(web3.eth.accounts[1], web3.eth.accounts[2], web3.eth.accounts[3], $scope.policyNumber, 
-		  	//parseInt($scope.faceAmount), parseInt($scope.rententionAmount), {from: web3.eth.accounts[0], to: web3.eth.accounts[1], value: parseInt($scope.faceAmount)});
-		}
-		*/
+		var transferEvent = token.Transfer({fromBlock: "latest"});
+		transferEvent.watch(function(error, result) {
+		  // This will catch all Transfer events, regardless of how they originated.
+		  if (error == null) {
+
+		    var trans = {
+		    	"from": result.args.from,
+		    	"to":result.args.to,
+		    	"value":result.args.value.valueOf()
+		    }
+
+		    transfers.$add(trans);
+		    transfers.$save();
+		    
+		  } else {
+		  	console.log(error);
+		  }
+		});
 
 	}
   

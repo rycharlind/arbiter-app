@@ -14,13 +14,13 @@
       controllerAs: 'vm',
       reloadOnSearch: false
     })
-    .when('/send', {
+    .when('/send/:address', {
       templateUrl: 'send.html',
       controller: 'SendController',
       controllerAs: 'vm',
       reloadOnSearch: false
     })
-    .when('/contract/:contract', {
+    .when('/contract/:address', {
       templateUrl: 'contract.html',
       controller: 'ContractController',
       controllerAs: 'vm',
@@ -32,7 +32,7 @@
       controllerAs: 'vm',
       reloadOnSearch: false
     })
-    .when('/account/:account', {
+    .when('/account/:address', {
       templateUrl: 'account.html',
       controller: 'AccountController',
       controllerAs: 'vm',

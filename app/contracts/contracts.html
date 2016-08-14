@@ -33,7 +33,17 @@
             <h3>Contracts</h3>
             <div class="card-body">
                 <div ng-repeat="contract in contracts">
-                    <a href="#/contract/{{contract.$value}}">{{contract.$value}}</a>
+                    <div class="contract">
+                        <div class="contract-item">
+                            <a href="#/contract/{{contract.address}}">{{contract.address}}</a>
+                        </div>
+                        <div class="contract-item">
+                            {{contract.tokenName}} {{contract.tokenSymbol}}
+                        </div>
+                        <div class="contract-item">
+                            {{contract.initialSupply}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

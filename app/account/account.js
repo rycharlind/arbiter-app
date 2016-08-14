@@ -1,27 +1,25 @@
 (function () {
   'use strict';
 
-  function AccountController($scope, $http, $filter, $location, $window, $timeout, $routeParams) {
+  function AccountController($scope, $filter, $location, $routeParams, $firebaseArray) {
 
-    var vm = this;
+    var ref = new Firebase("https://arbiter.firebaseio.com/contracts");
+    $scope.contracts = $firebaseArray(ref);
 
-    //var myToken = MyToken.at($routeParams.account);
-    var token = MyToken.at("0x46e2eb4d6fb70621c90a02ae4bc535f9bd38a61e");
+    $scope.address = $routeParams.address;
 
-    $scope.account = $routeParams.account;
-    $scope.tokenName; 
-    $scope.balance; 
-    
-    token.balanceOf($routeParams.account).then(function(value) {
-      $scope.balance = value.valueOf();
-      $scope.$apply();
+    // Get the balace for each contract for this address
+    $scope.contracts.$loaded().then(function() {
+      angular.forEach($scope.contracts, function(contract) {
+        console.log(contract);
+        var token = MyToken.at(contract.address);
+        token.balanceOf($routeParams.address).then(function(value) {
+          contract.balance = value.valueOf();
+          $scope.contracts[contract] = contract;
+          $scope.$apply();
+        });
+      });
     });
-
-    token.name().then(function(value) {
-      $scope.tokenName = value;
-      $scope.$apply();
-    });
-
 
   }
 

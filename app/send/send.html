@@ -3,6 +3,16 @@
         <div class="mdl-card mdl-shadow--2dp">
             <h3>Send</h3>
             <div class="card-body">
+
+                <div class="contract">
+                    <div class="contract-item">
+                        Token Name: <strong>{{tokenName}}</strong>
+                    </div>
+                    <div class="contract-item">
+                        Balance: <strong>{{balance}}</strong>
+                    </div>
+                </div>
+
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
                     <input ng-model="address" class="mdl-textfield__input" type="text" id="address">
                     <label class="mdl-textfield__label" for="address">Address</label>

@@ -15,9 +15,19 @@
 	
 		$scope.create = function() {
 			MyToken.new($scope.initialSupply, $scope.tokenName, $scope.decimalUnits, $scope.tokenSymbol).then(function(instance) {
-				console.log(instance.address);
-				$scope.contracts.$add(instance.address);
+				console.log(instance);
+
+				var contract = {
+					"address":instance.address,
+					"tokenName":$scope.tokenName,
+					"decimalUnits":$scope.decimalUnits,
+					"tokenSymbol":$scope.tokenSymbol,
+					"initialSupply":$scope.initialSupply
+				}
+
+				$scope.contracts.$add(contract);
 				$scope.contracts.$save();
+				
 			});
 		}	
 	}

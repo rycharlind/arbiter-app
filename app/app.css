@@ -1,92 +1,84 @@
 html, body {
-	background-color:#f0f0f0;
-	font-family: "purista-web";
-}
+  background-color: #f0f0f0;
+  font-family: "purista-web"; }
 
-table {
-	width:800px;
-}
+.mdl-card {
+  width: 600px !important; }
+  .mdl-card h3 {
+    background-color: #00BCD4;
+    padding: 32px;
+    margin: 0;
+    color: #fff;
+    font-weight: 300; }
+  .mdl-card .card-body {
+    padding: 32px; }
+    .mdl-card .card-body .item {
+      margin-bottom: 12px; }
+      .mdl-card .card-body .item .key {
+        font-size: 22px;
+        margin-bottom: 6px; }
+      .mdl-card .card-body .item .value {
+        font-size: 14px;
+        color: gray; }
+    .mdl-card .card-body ul li {
+      border-bottom: 1px solid #d6d6d6; }
 
-td {
-	text-align:left;
-}
-
-th {
-	text-align: left;
-}
-
-td.primary {
-	background-color:rgba(63,81,181,0.83);
-}
-
-tr.primary {
-	background-color:rgba(63,81,181,0.24);
-}
-
-.md-btn-large {
-	width:100%;
-	padding:12px 6px !important;
-	margin:0px !important;
-}
-
-.whiteframe {
-	padding:32px 80px 64px 80px;
-	margin:64px;
-	background-color:#fff;
-	z-index: 5;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-	border-radius: 6px;
-}
-
-.whiteframe h1 {
-	color:#757575;
-	text-align: center;
-	margin:0px 0px 16px 0px;
-}
+.mdl-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.56);
+  display: flex;
+  align-items: center; }
+  .mdl-progress-container .mdl-progress {
+    margin: auto; }
 
 .blockchain1-bg:before {
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.16;
-    background-image: url('images/blockchain1.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-
-}
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.16;
+  background-image: url("images/blockchain1.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
 .blockchain2-bg:before {
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.16;
-    background-image: url('images/blockchain3.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-}
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.16;
+  background-image: url("images/blockchain3.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
 
+.account .token {
+  background-color: #ff00ff;
+  padding: 32px; }
 
+.contract {
+  margin-bottom: 32px; }
 
-.md-toolbar-tools .md-button {
-	color:#fff;
-}
+/*# sourceMappingURL=app.css.map */
