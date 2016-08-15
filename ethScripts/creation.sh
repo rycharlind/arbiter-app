@@ -17,12 +17,15 @@ done
 #Create the data directory from the genesis
 geth --datadir data init genesis.json
 
+#Get ip address for geth usage
+personalIp=`ifconfig | grep -o "inet addr:.*Bcast:" | grep -o ":.* " | cut -c 2-`
+
 #Run the geth server
 geth --identity "ArbiterNode" --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "data" --port "30304" --nodiscover --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --autodag --networkid 1900 --nat "any" --unlock 0 --verbosity 6 console
 #could add --mine to mine from here or use another node to do so
 
 #Connect to geth server to mine
-geth --verbosity 6 attach http://localhost:8545
+#geth --verbosity 6 attach http://localhost:8545
 #Then user miner.start(4)
 
 
