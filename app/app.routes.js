@@ -43,6 +43,18 @@
       controller: 'AccountsController',
       controllerAs: 'vm',
       reloadOnSearch: false
+    })
+    .when('/transaction/:hash', {
+      templateUrl: 'transaction.html',
+      controller: 'TransactionController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
+    })
+    .when('/block/:hash', {
+      templateUrl: 'block.html',
+      controller: 'BlockController',
+      controllerAs: 'vm',
+      reloadOnSearch: false
     });
     $routeProvider.otherwise({redirectTo: '/contracts'});
   }

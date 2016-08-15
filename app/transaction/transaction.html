@@ -1,0 +1,55 @@
+<div class="transaction mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Transaction <small>{{hash}}</small></h3>
+        <div class="card-body">
+        	<div class="table-container">
+                <table class="mdl-data-table mdl-js-data-table">
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Block Hash</td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                            	<a href="#/block/{{blockHash}}">{{blockHash}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Block Number</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{blockNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">From</td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                            	<a href="#/account/{{from}}">{{from}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">To</td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                            	<a href="#/account/{{to}}">{{to}}</a>
+                           	</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Value</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{value}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Nonce</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{nonce}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Gas</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{gas}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Gas Price</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{gasPrice}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Input Data</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{input}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

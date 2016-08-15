@@ -43,7 +43,9 @@
                                         <a href="#/account/{{transfer.to}}">{{transfer.to}}</a>
                                     </td>
                                     <td>{{transfer.value | currency}}</td>
-                                    <td class="mdl-data-table__cell--non-numeric">{{transfer.transaction}}</td>
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <a href="#/transaction/{{transfer.transaction}}">{{transfer.transaction}}</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

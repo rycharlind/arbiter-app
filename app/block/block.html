@@ -1,0 +1,53 @@
+<div class="block mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Block <small>{{hash}}</small></h3>
+        <div class="card-body">
+        	<div class="table-container">
+                <table class="mdl-data-table mdl-js-data-table">
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Number</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{number}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Size</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{size}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Difficulty</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{difficulty}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Gas Limit</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{gasLimit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Miner</td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                            	<a href="#/account/{{miner}}">{{miner}}</a>
+                           	</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Parent Hash</td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <a href="#/block/{{parentHash}}">{{parentHash}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Receipt Root</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{receiptRoot}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">State Root</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{stateRoot}}</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Transactions Root</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{transactionsRoot}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
