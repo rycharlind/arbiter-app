@@ -1,31 +1,22 @@
-<div class="accounts">
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>Create Account</h3>
-            <div class="card-body">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="email" class="mdl-textfield__input" type="text" id="email">
-                    <label class="mdl-textfield__label" for="email">Email</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="password" class="mdl-textfield__input" type="password" id="password">
-                    <label class="mdl-textfield__label" for="password">Password</label>
-                </div>
-                <div>
-                    <button ng-click="create()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                    Create
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>Accounts</h3>
-            <div class="card-body">
-                <div class="account" ng-repeat="account in accounts">
-                    <a href="#/account/{{account}}">{{account}}</a>
-                </div>
+<div class="accounts mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Accounts</h3>
+        <div class="card-body">
+            <div class="table-container">
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="account in accounts">
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <a href="#/account/{{account}}">{{account}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

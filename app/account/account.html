@@ -1,16 +1,53 @@
-<div class="account">
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>Account <small>{{address}}</small></h3>
-            <div class="card-body">
-            	<div class="contract" ng-repeat="contract in contracts" ng-if="contract.balance > 0">
-            		<div class="contract-item">{{contract.tokenName}}</div>
-                	<div class="contract-item">Balance: <strong>{{contract.balance}}</strong></div>
-                	<div class="contract-item">
-                		<a href="#/send/{{contract.address}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                    		Send
-                    	</a>
-                	</div>
+<div class="account mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Account <small>{{address}}</small></h3>
+        <div class="card-body">
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#policies" class="mdl-tabs__tab is-active">Policies</a>
+                    <a href="#transfers" class="mdl-tabs__tab">Transfers</a>
+                </div>
+                <div class="mdl-tabs__panel is-active" id="policies">
+                    <ul class="mdl-list policies">
+                        <li class="mdl-list__item mdl-list__item--two-line" ng-repeat="contract in contracts" ng-if="contract.balance > 0">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-avatar">insert_drive_file</i>
+                                <span>{{contract.balance | currency}}</span>
+                                <span class="mdl-list__item-sub-title">{{contract.policyNumber}}</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <a href="#/send/{{contract.address}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Send</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mdl-tabs__panel" id="transfers">
+                    <div class="table-container">
+                        <table class="mdl-data-table mdl-js-data-table">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Policy Number</th>
+                                    <th class="mdl-data-table__cell--non-numeric">From</th>
+                                    <th class="mdl-data-table__cell--non-numeric">To</th>
+                                    <th>Value</th>
+                                    <th class="mdl-data-table__cell--non-numeric">Transaction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="transfer in transfers" ng-if="transfer.from == address || transfer.to == address">
+                                    <td class="mdl-data-table__cell--non-numeric">{{transfer.policyNumber}}</td>
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <a href="#/account/{{transfer.from}}">{{transfer.from}}</a>
+                                    </td>
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <a href="#/account/{{transfer.to}}">{{transfer.to}}</a>
+                                    </td>
+                                    <td>{{transfer.value | currency}}</td>
+                                    <td class="mdl-data-table__cell--non-numeric">{{transfer.transaction}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

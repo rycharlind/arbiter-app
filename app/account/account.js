@@ -3,15 +3,14 @@
 
   function AccountController($scope, $filter, $location, $routeParams, $firebaseArray) {
 
-    var ref = new Firebase("https://arbiter.firebaseio.com/contracts");
-    $scope.contracts = $firebaseArray(ref);
+    var refContracts = new Firebase("https://arbiter.firebaseio.com/contracts");
+    $scope.contracts = $firebaseArray(refContracts);
 
     $scope.address = $routeParams.address;
 
     // Get the balace for each contract for this address
     $scope.contracts.$loaded().then(function() {
       angular.forEach($scope.contracts, function(contract) {
-        console.log(contract);
         var token = MyToken.at(contract.address);
         token.balanceOf($routeParams.address).then(function(value) {
           contract.balance = value.valueOf();
@@ -20,6 +19,11 @@
         });
       });
     });
+
+    // Get transfer events from Firebase
+    var refTransfers = new Firebase("https://arbiter.firebaseio.com/transfers");
+    $scope.transfers = $firebaseArray(refTransfers);
+
 
   }
 

@@ -3,7 +3,7 @@ html, body {
   font-family: "purista-web"; }
 
 .mdl-card {
-  width: 600px !important; }
+  width: 100% !important; }
   .mdl-card h3 {
     background-color: #00BCD4;
     padding: 32px;
@@ -74,11 +74,22 @@ html, body {
   -webkit-background-size: cover;
   background-size: cover; }
 
-.account .token {
-  background-color: #ff00ff;
-  padding: 32px; }
+.policy-info .mdl-cell label {
+  display: block;
+  font-size: 14px;
+  color: #909090; }
+.policy-info .mdl-cell span {
+  font-size: 18px; }
 
-.contract {
-  margin-bottom: 32px; }
+.table-container {
+  overflow-x: scroll;
+  margin-top: 32px; }
+
+.policies .mdl-list__item-avatar.material-icons {
+  font-size: 24px;
+  padding: 8px; }
+
+table {
+  width: 100% !important; }
 
 /*# sourceMappingURL=app.css.map */

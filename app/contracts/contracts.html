@@ -1,52 +1,54 @@
-<div class="contracts">
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>New Contract</h3>
-            <div class="card-body">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="tokenName" class="mdl-textfield__input" type="text" id="tokenName">
-                    <label class="mdl-textfield__label" for="tokenName">Token Name</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="initialSupply" class="mdl-textfield__input" type="number" id="initialSupply">
-                    <label class="mdl-textfield__label" for="initialSupply">Initial Supply</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="decimalUnits" class="mdl-textfield__input" type="number" id="decimalUnits">
-                    <label class="mdl-textfield__label" for="decimalUnits">Decimal Units</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
-                    <input ng-model="tokenSymbol" class="mdl-textfield__input" type="text" id="tokenSymbol">
-                    <label class="mdl-textfield__label" for="tokenSymbol">Token Symbol</label>
-                </div>
-                <div>
-                    <button ng-click="create()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                    Create
-                    </button>
-                </div>
+<div class="contracts mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Policies</h3>
+        <div class="card-body">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="policyNumber" class="mdl-textfield__input" type="text" id="policyNumber">
+                <label class="mdl-textfield__label" for="policyNumber">Policy Number</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="faceAmount" class="mdl-textfield__input" type="number" id="faceAmount">
+                <label class="mdl-textfield__label" for="faceAmount">Face Amount</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="premium" class="mdl-textfield__input" type="text" id="premium">
+                <label class="mdl-textfield__label" for="premium">Premium</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="effectiveDate" class="mdl-textfield__input" type="text" id="effectiveDate">
+                <label class="mdl-textfield__label" for="effectiveDate">Effective Date</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded">
+                <input ng-model="expirationDate" class="mdl-textfield__input" type="text" id="expirationDate">
+                <label class="mdl-textfield__label" for="expirationDate">Experation Date</label>
+            </div>
+            <div>
+                <button ng-click="create()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                Create
+                </button>
+            </div>
+            <div class="table-container">
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Address</th>
+                            <th class="mdl-data-table__cell--non-numeric">Policy Number</th>
+                            <th>Face Amount</th>
+                            <th>Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="contract in contracts">
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <a href="#/contract/{{contract.address}}">{{contract.address}}</a>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">{{contract.policyNumber}}</td>
+                            <td>{{contract.faceAmount | currency}}</td>
+                            <td>{{contract.premium | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>Contracts</h3>
-            <div class="card-body">
-                <div ng-repeat="contract in contracts">
-                    <div class="contract">
-                        <div class="contract-item">
-                            <a href="#/contract/{{contract.address}}">{{contract.address}}</a>
-                        </div>
-                        <div class="contract-item">
-                            {{contract.tokenName}} {{contract.tokenSymbol}}
-                        </div>
-                        <div class="contract-item">
-                            {{contract.initialSupply}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

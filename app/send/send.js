@@ -3,9 +3,6 @@
 
 	function SendController($scope, $http, $filter, $location, $routeParams, arbiterService, $firebaseArray) {
 
-		var ref = new Firebase("https://arbiter.firebaseio.com/tranfers");
-		var transfers = $firebaseArray(ref);
-
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 
 		// Accounts
@@ -17,9 +14,9 @@
 		var token = MyToken.at($routeParams.address);
 
 		// Token Name
-		$scope.tokenName;
-		token.name().then(function(value) {
-			$scope.tokenName = value.valueOf();
+		$scope.policyNumber;
+		token.policyNumber().then(function(value) {
+			$scope.policyNumber = value.valueOf();
 			$scope.$apply();
 		});
 
@@ -30,30 +27,43 @@
           $scope.$apply();
         });
 
+
+        var ref = new Firebase("https://arbiter.firebaseio.com/transfers");
+		var transfers = $firebaseArray(ref);
+		var transferEvent = token.Transfer({fromBlock: "latest", address: web3.eth.defaultAccount});
+
 		$scope.send = function() {
 			token.transfer($scope.address, $scope.amount, {from: web3.eth.defaultAccount}).then(function(transaction) {
 				console.log(transaction);
+
+				transferEvent.watch(function(error, result) {
+
+					transferEvent.stopWatching(); // Stop watching before the miner events get called (only need to capture it once)
+	 
+					if (error == null) {
+
+						console.log(result);
+
+						var trans = {
+							"transaction":transaction,
+							"from": result.args.from,
+							"to":result.args.to,
+							"value":result.args.value.valueOf(),
+							"policyNumber":result.args.policyNumber
+						}
+
+						transfers.$add(trans);
+						transfers.$save();
+
+					} else {
+						console.log(error);
+					}
+				
+				});
+
 			});
 		}
 
-		var transferEvent = token.Transfer({fromBlock: "latest"});
-		transferEvent.watch(function(error, result) {
-		  // This will catch all Transfer events, regardless of how they originated.
-		  if (error == null) {
-
-		    var trans = {
-		    	"from": result.args.from,
-		    	"to":result.args.to,
-		    	"value":result.args.value.valueOf()
-		    }
-
-		    transfers.$add(trans);
-		    transfers.$save();
-		    
-		  } else {
-		  	console.log(error);
-		  }
-		});
 
 	}
   

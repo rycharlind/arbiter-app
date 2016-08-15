@@ -1,16 +1,39 @@
-<div class="contract">
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="mdl-card mdl-shadow--2dp">
-            <h3>Contract <small>{{address}}</small></h3>
-            <div class="card-body">
-                <div class="contract">
-                    <div class="contract-item">
-                        Token Name: <strong>{{tokenName}}</strong>
-                    </div>
-                    <div class="contract-item">
-                        Total Supply: <strong>{{totalSupply}}</strong>
-                    </div>
+<div class="contract mdl-cell mdl-cell--12-col">
+    <div class="mdl-card mdl-shadow--2dp">
+        <h3>Policy <small>{{address}}</small></h3>
+        <div class="card-body">
+            
+            <div class="mdl-grid policy-info">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <label>Policy Number</label>
+                    <span>{{policyNumber}}</span>
                 </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <label>Face Amount</label>
+                    <span>{{faceAmount | currency}}</span>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <label>Premium</label>
+                    <span>{{premium | currency}}</span>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Account</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key, value) in balances" ng-if="value > 0">
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <a href="#/account/{{key}}">{{key}}</a>
+                            </td>
+                            <td>{{value | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

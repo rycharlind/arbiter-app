@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-	function ContractsController($scope, $http, $location, $routeParams, arbiterService, $firebaseObject, $firebaseArray) {
+	function ContractsController($scope, $http, $location, $filter, $routeParams, arbiterService, $firebaseArray) {
 
 		var ref = new Firebase("https://arbiter.firebaseio.com/contracts");
 		$scope.contracts = $firebaseArray(ref);
@@ -12,21 +12,38 @@
 		$scope.initialSupply;
 		$scope.decimalUnits;
 		$scope.tokenSymbol;
+
+		$scope.policyNumber;
+		$scope.faceAmount;
+		$scope.premium;
+		$scope.effectiveDate;
+		$scope.expirationDate;
 	
 		$scope.create = function() {
-			MyToken.new($scope.initialSupply, $scope.tokenName, $scope.decimalUnits, $scope.tokenSymbol).then(function(instance) {
+			MyToken.new(
+				$scope.faceAmount, 
+				$scope.policyNumber, 
+				$scope.effectiveDate,
+				$scope.expirationDate,
+				$scope.premium,
+				{
+					from: web3.eth.accounts[0]
+				}
+			).then(function(instance) {
 				console.log(instance);
 
 				var contract = {
 					"address":instance.address,
-					"tokenName":$scope.tokenName,
-					"decimalUnits":$scope.decimalUnits,
-					"tokenSymbol":$scope.tokenSymbol,
-					"initialSupply":$scope.initialSupply
+					"policyNumber":$scope.policyNumber,
+					"premium":$scope.premium,
+					"faceAmount":$scope.faceAmount
 				}
 
 				$scope.contracts.$add(contract);
 				$scope.contracts.$save();
+
+				$scope = $scope.$new(true);
+				$scope.$apply();
 				
 			});
 		}	
