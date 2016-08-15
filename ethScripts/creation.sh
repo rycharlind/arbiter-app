@@ -21,7 +21,7 @@ geth --datadir data init genesis.json
 personalIp=`ifconfig | grep -o "inet addr:.*Bcast:" | grep -o ":.* " | cut -c 2-`
 
 #Run the geth server
-geth --identity "ArbiterNode" --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "data" --port "30304" --nodiscover --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --autodag --networkid 1900 --nat "any" --unlock 0 --verbosity 6 console
+geth --identity "ArbiterNode" --rpc --rpcport "8545" --rpccorsdomain "*" --datadir "data" --port "30304" --nodiscover --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --autodag --networkid 1900 --nat "any" --unlock 0 --verbosity 6 --rpcaddr $personalIp console
 #could add --mine to mine from here or use another node to do so
 
 #Connect to geth server to mine
