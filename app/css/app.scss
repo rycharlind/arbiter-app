@@ -1,0 +1,84 @@
+html, body {
+	background-color:#f0f0f0;
+	font-family: "purista-web";
+}
+
+.mdl-card {
+	width:100% !important;
+	h3 {
+		background-color:#00BCD4;
+		padding:32px;
+		margin:0;
+		color:#fff;
+		font-weight: 300;
+	}
+	.card-body {
+		padding:32px;
+		.item {
+			margin-bottom:12px;
+			.key {
+				font-size:22px;
+				margin-bottom:6px;
+			}
+			.value {
+				font-size:14px;
+				color:gray;
+			}
+		}
+		ul {
+			li {
+				border-bottom:1px solid #d6d6d6;
+			}
+		}
+	}
+}
+
+.mdl-progress-container {
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	width:100%;
+	z-index:100;
+	background-color:rgba(0,0,0,0.56);
+	display:flex;
+	align-items:center;
+	.mdl-progress {
+		margin:auto;
+	}
+}
+
+.policy-info {
+	.mdl-cell {
+		label {
+			display: block;
+			font-size:14px;
+			color:#909090;
+		}
+		span {
+			font-size:24px;
+		}
+	}
+}
+
+.table-container {
+	overflow-x: scroll;
+	margin-top:32px;
+}
+
+table {
+	width:100% !important;
+}
+
+.table-2-col {
+	td:first-child {
+		font-weight:bold;
+	}
+}
+
+.policies {
+	.mdl-list__item-avatar.material-icons {
+		font-size:24px;
+		padding:8px;
+	}
+}
