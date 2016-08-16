@@ -27,9 +27,9 @@ module.exports = {
     "block.html":"block/block.html",
     "block.js":"block/block.js",
     "arbiter.service.js":"arbiter.service.js",
-    "ethereumjs-accounts.js":"ethereumjs-accounts.js",
-    "hooked-web3-provider.min.js":"hooked-web3-provider.min.js",
-    "ngMask.js":"ngMask.js",
+    "ethereumjs-accounts.js":"libs/ethereumjs-accounts.js",
+    "hooked-web3-provider.min.js":"libs/hooked-web3-provider.min.js",
+    "ngMask.js":"libs/ngMask.js",
   },
   deploy: [
     "MyToken"
