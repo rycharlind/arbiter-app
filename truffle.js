@@ -2,8 +2,8 @@ module.exports = {
   build: {
     "images/": "images/",
     "index.html": "index.html",
-    "app.css":"app.scss",
-    "temp-custom-styles.css":"temp-custom-styles.css",
+    "app.css":"css/app.scss",
+    "temp-custom-styles.css":"css/temp-custom-styles.css",
     "app.js":"app.js",
     "app.routes.js":"app.routes.js",
     "register.html":"register/register.html",
@@ -22,14 +22,16 @@ module.exports = {
     "contract.js":"contract/contract.js",
     "contracts.html":"contracts/contracts.html",
     "contracts.js":"contracts/contracts.js",
-    "events.html":"events/events.html",
+    "transaction.html":"transaction/transaction.html",
+    "transaction.js":"transaction/transaction.js",
+    "block.html":"block/block.html",
+    "block.js":"block/block.js",
     "arbiter.service.js":"arbiter.service.js",
     "ethereumjs-accounts.js":"ethereumjs-accounts.js",
     "hooked-web3-provider.min.js":"hooked-web3-provider.min.js",
     "ngMask.js":"ngMask.js",
   },
   deploy: [
-    "MetaCoin",
     "MyToken"
   ],
   rpc: {
