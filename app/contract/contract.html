@@ -23,6 +23,7 @@
                         <tr>
                             <th class="mdl-data-table__cell--non-numeric">Account</th>
                             <th>Balance</th>
+                            <th>Percentage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,9 +32,18 @@
                                 <a href="#/account/{{key}}">{{key}}</a>
                             </td>
                             <td>{{value | currency}}</td>
+                            <td>{{value / faceAmount * 100}}%</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div id="chart_div_pie"></div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div id="chart_div_bar"></div>
+                </div>
             </div>
         </div>
     </div>

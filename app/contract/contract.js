@@ -42,7 +42,10 @@
       $scope.$apply();
     });
 
-
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Account');
+    data.addColumn('number', 'Balance');
 
     // Balances
     $scope.balances = {};
@@ -50,8 +53,33 @@
       token.balanceOf(account).then(function(value) {
         $scope.balances[account] = value.valueOf();
         $scope.$apply();
+        var row = [account, parseInt(value.valueOf())];
+        data.addRow(row);
+        drawCharts(data);
       });
     });
+
+    //google.charts.setOnLoadCallback(drawCharts);
+
+  }
+
+
+
+  function drawCharts(data) {
+
+    // Set chart options
+    var options = {
+      'width':400,
+      'height':300,
+      'legend':'none'
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var pieChart = new google.visualization.PieChart(document.getElementById('chart_div_pie'));
+    pieChart.draw(data, options);
+
+    var barChart = new google.visualization.ColumnChart(document.getElementById('chart_div_bar'));
+    barChart.draw(data, options);
 
   }
 
