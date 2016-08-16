@@ -1,2 +1,1 @@
-# arbiter-app
-Arbiter Angular Web App
+# Arbiter Dapp
