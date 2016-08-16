@@ -36,60 +36,25 @@ html, body {
   .mdl-progress-container .mdl-progress {
     margin: auto; }
 
-.blockchain1-bg:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.16;
-  background-image: url("images/blockchain1.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover; }
-
-.blockchain2-bg:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.16;
-  background-image: url("images/blockchain3.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover; }
-
 .policy-info .mdl-cell label {
   display: block;
   font-size: 14px;
   color: #909090; }
 .policy-info .mdl-cell span {
-  font-size: 18px; }
+  font-size: 24px; }
 
 .table-container {
   overflow-x: scroll;
   margin-top: 32px; }
 
+table {
+  width: 100% !important; }
+
+.table-2-col td:first-child {
+  font-weight: bold; }
+
 .policies .mdl-list__item-avatar.material-icons {
   font-size: 24px;
   padding: 8px; }
-
-table {
-  width: 100% !important; }
 
 /*# sourceMappingURL=app.css.map */

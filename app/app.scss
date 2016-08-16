@@ -56,7 +56,7 @@ html, body {
 			color:#909090;
 		}
 		span {
-			font-size:18px;
+			font-size:24px;
 		}
 	}
 }
@@ -68,6 +68,12 @@ html, body {
 
 table {
 	width:100% !important;
+}
+
+.table-2-col {
+	td:first-child {
+		font-weight:bold;
+	}
 }
 
 .policies {
